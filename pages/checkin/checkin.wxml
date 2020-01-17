@@ -1,0 +1,134 @@
+<view class="mycomment-wapper">
+  <view class="checkin-tab">
+    <block wx:for="{{['打卡', '足迹','排名']}}" wx:key='key'>
+      <view class="checkin-tab-item {{curIndex==index?'checkin-tab-active':''}}" catchtap="checkinTab" data-index="{{index}}">
+        {{item}} 
+      </view>
+    </block>
+    <view class="checkin-bar" style="{{curIndex==0?'left:0;':(curIndex==1?'left:33.33%;':'left:66.66%;')}}">
+      <text class="checkin-barlist"></text>
+    </view>
+  </view>
+  <!-- 内容 -->
+  <view class="checkin-content">
+    <!--打卡-->
+    <view class="checkin-daka-wapper" hidden="{{curIndex!=0}}">
+      打卡
+    </view>
+    <!-- 足迹 -->
+    <view class="checkin-daka-wapper" hidden="{{curIndex!=1}}">
+      <view class="rili">
+        <!-- 日历年月 -->
+        <view class='calendar_title flex_nowrap'>
+          <view class='icon' bindtap='lastMonth'>
+            <text class="iconfont icon-zuobian"></text>
+          </view>
+          <view>{{year}}年{{month}}月</view>
+          <view class='icon' bindtap='nextMonth'>
+            <text class="iconfont icon-youbian"></text>
+          </view>
+        </view>
+        <view class="leiji">
+          <text>已累计0天，连续：0天</text> 
+          </view>
+        <!-- 日历主体 -->
+        <view class='calendar'>
+          <!-- 星期 -->
+          <view class='header'>
+            <view wx:for='{{date}}' wx:key='' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+              <view></view>
+            </view>
+          </view>
+          <!-- 日期 -->
+          <view class='date-box'>
+            <block wx:for='{{dateArr}}' wx:key='key'>
+              <view class='{{isToday == item.isToday ? "nowDay" : ""}}'>
+                <view class='date-head' catchtap='nowLook' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'> 
+                  <view>{{item.dateNum}}</view>
+                  <!-- 小红点 -->
+                  <text class="{{item.dateNum!=null?'diandian':''}}"></text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class="leiji pleiji"><text>{{nowText}}</text></view>
+    </view>
+    
+    <!-- 排名 -->
+    <view class="checkin-raking" hidden="{{curIndex!=2}}">
+      <view class="ranking-top">
+        <view class="ranking-btn">
+         <!-- ranking-btn-link -->
+         <block wx:for="{{['累计榜','坚持榜']}}" wx:key="key">
+          <text data-index="{{index}}" bindtap="addTab" class="ranking-btn-list {{currentAdd==index?'ranking-btn-link':''}}" >{{item}}</text>
+          </block>
+        </view>
+        <!-- 第一名 -->
+        <view>
+          <view class="ranking-first">
+            <view class="ranking-img"><image class="radioimg rankimg" src="{{rankingList[0].img}}"></image></view>
+            <text class="rankingNum first-num">1</text>
+            <view class="rankingName">{{rankingList[0].name}}</view>     
+          </view>
+          <view class="first first_bottom">打卡{{rankingList[0].clockIn}}次</view>
+        </view>
+        <!-- 第二名 -->
+        <view>
+          <view class="ranking-second">
+            <view class="ranking-img"><image src="{{rankingList[1].img}}" class="radioimg rankimg"></image></view>
+            <text class="rankingNum">2</text>
+            <view class="rankingName">{{rankingList[1].name}}</view>     
+          </view>
+          <view class="first second_bottom ">打卡{{rankingList[1].clockIn}}次</view>
+        </view>
+        <!-- 第三名 -->
+        <view>
+          <view class="ranking-second ranking-third">
+            <view class="ranking-img"><image src="{{rankingList[2].img}}" class="radioimg rankimg"></image></view>
+            <text class="rankingNum">3</text>
+            <view class="rankingName">{{rankingList[2].name}}</view>     
+          </view>
+          <view class="first second_bottom ranking-third">打卡{{rankingList[2].clockIn}}次</view>
+        </view>
+      </view>
+      <view class="ranking-hot-wapper">
+        <view class="ranking-list">
+          <block wx:for="{{rankingList}}" wx:key="key">
+            <view wx:if="{{index>2}}">
+              <view class="ranking-item">
+                <view class="ranking-item-left">
+                  <text class="user-rank">{{index+1}}</text>
+                  <view class="user-rankimg"><image class="radioimg" src="{{item.img}}"></image></view>
+                </view>
+                <view class="ranking-item-center">
+                  <text>{{item.name}}</text>  
+                </view>
+                <view class="ranking-item-right">
+                  <text>{{item.clockIn}}次</text> 
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="nonecomment" >
+          <text>已经显示全部</text>
+        </view>
+      </view>
+      
+      <!-- my -->
+      <view class="my-integral">
+        <view class="my-img">
+          <image src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207" class="radioimg"></image>
+        </view>
+        <text class="integral-name">名称</text>
+        <view class="my-cishu"><text>我的打卡次数:3次</text></view>
+      </view>
+    </view>
+  </view>
+  <!-- bottom -->
+  <view class="gohome" bindtap="goHome" hidden="{{curIndex==2}}">
+    <text class="iconfont icon-zuobian"></text> <text  space="nbsp"> 返回首页</text>
+  </view>
+</view>

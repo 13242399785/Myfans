@@ -1,0 +1,434 @@
+/* pages/post.wxss */
+/* content */
+.post-wapper{
+  font-size: 28rpx;
+}
+.post-content{
+    height: 100%;
+    min-height: 385px;
+    background: #f0f0f0;
+    position: relative;
+    overflow: scroll;
+}
+.content-box{
+    height: 100%;
+    padding-bottom: 600rpx;
+    overflow-x: hidden;
+}
+.box-toptitle{
+  padding: 0 24rpx;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  overflow: hidden;
+  height: 88rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #ebebeb;
+}
+.toptitle-box{
+  flex: 1 1;
+}
+.box-toptitle input{
+    color: #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 4rpx 0;
+    border: 0;
+    background-color: transparent;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.content-text{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 30rpx;
+    min-height: 88rpx;
+    background-color: #fff;
+    vertical-align: middle;
+    overflow: hidden;
+    -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+    -ms-flex-align: center;
+    align-items: center;
+    padding:0 24rpx;
+    background-color: #f0f0f0;
+}
+.content-wapper{
+  flex: 1 1;
+  padding: 20rpx 0;
+}
+.content-textarea{
+    color: #000;
+    line-height: 51rpx;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    overflow: auto;
+    display: block;
+    resize: none;
+    word-break: break-word;
+    word-wrap: break-word;
+    height: 300rpx;
+}
+/* 底部 */
+.edioron{
+  position: fixed;
+  font-size:36rpx;
+  bottom: 8rpx;
+  right: 18rpx;
+  /* background: #fff; */
+  color: #ffd600;
+  z-index: 10;
+}
+.post-tabbar{
+  position: fixed;
+  font-size: 28rpx;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+}
+.tabbar-top{
+  background: #f0f0f0;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.tabbar-topl{
+  color: #aaa;
+  z-index: 999;
+}
+.tabbar-topl .iconfont{
+  font-size: 36rpx;
+}
+.tabbar-topr{
+  text-align: center;
+  width: 220rpx;
+  line-height: 54rpx;
+  height:54rpx;
+  font-size: 24rpx;
+  color: #aaa;
+  border: 2rpx solid #aaa;
+  border-radius: 27rpx;
+  padding: 0 10rpx;
+}
+.tabbar-media{
+  border-bottom: 2rpx solid #eee;
+  height: 120rpx;
+  display: flex;
+  color: #ddd;
+}
+.tabbar-media .iconfont{
+  margin-top: 28rpx;
+  display: block;
+  text-align: center;
+  color: #aaa;
+  font-size:40rpx;
+}
+.activeE .describe{
+  color: rgb(255, 214, 0);
+}
+.activeE .iconfont{
+  color: rgb(255, 214, 0);
+}
+.describe {
+  padding: 0 25rpx;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  color: rgb(170, 170, 170);
+}
+.filling {
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+.container-wapper{
+  color: #444;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 24rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  overflow: hidden;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.container-title{
+  margin-bottom: 20rpx;
+}
+.topicCurrent{
+  padding: 4px;
+  border-radius: 10rpx;
+  border: 2rpx solid rgb(255, 214, 0);
+  color: rgb(255, 214, 0);
+}
+.container-right .iconfont{
+  font-size: 36rpx;
+  color: #ddd;
+}
+.tabbar-release{
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  padding-bottom: 24rpx;
+}
+.release-btn{
+  width: 80%;
+  min-width: 600rpx;
+  height: 84rpx;
+  border-radius: 10rpx;
+  background: rgb(255, 214, 0);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 300;
+  text-transform: none;
+}
+/* 选择话题 */
+.choose-wapper{
+  top: 100%;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0,0,0,.3);
+  /* transition: all ease .2s; */
+}
+.choose-top0{
+  top:0;
+}
+.choose-content{
+  position: fixed;
+  width: 100%;
+  bottom:-100%;
+  background: #fff;
+  text-align: center;
+  transition: all ease .5s;
+}
+.choose-bottom0{
+  bottom:0;
+}
+.choose-title{
+  margin:50rpx 20rpx 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 36rpx;
+  color: #444;
+}
+.choose-list{
+  padding: 30rpx 24rpx 34rpx;
+  text-align: left;
+}
+.choose-name{
+    height: 56rpx;
+    line-height:  56rpx;
+    color: #a4a4a4;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+    border: 2rpx solid #a4a4a4;
+    display: inline-block;
+    margin-top: 12rpx;
+    margin-bottom: 12rpx;
+    margin-right: 16rpx;
+}
+.choose-active{
+  color:rgb(255, 214, 0);border-color:rgb(255, 214, 0);
+}
+.choose-btn{
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.choose-cancel{
+  width: 50%;
+  background-color: rgb(244, 244, 244);
+}
+.choose-sure{
+  background-color: rgb(255, 214, 0);
+  color: rgb(255, 255, 255);
+  width: 50%;
+}
+.link-wapper{background: #f9f9f9;}
+.linkinput{
+  padding: 20rpx 70rpx 30rpx;
+  height: 44px;
+  padding-left: 15rpx;
+}
+.links{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #d7d7d7;
+  padding:0 15rpx;
+}
+.linktel{
+    margin: 20rpx 0 106rpx;
+    text-align: center;
+    color: #ddd;
+}
+/* 媒体 */
+.media-box{
+  color: #444;
+  margin: 24rpx;
+  /* position: relative; */
+}
+.link-box{
+  background: #f9f9f9;
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  border: 2rpx solid #d7d7d7;
+  border-radius: 5px;
+  position: relative;
+}
+.linkbox-icon{
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 160rpx;
+  background: #999999;
+}
+.linkbox-content{
+  flex: 1 1;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+.clearlink{
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+  font-size: 24rpx;
+  color: rgba(0,0,0,.6);
+}
+.linkbox-title{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 30rpx 0;
+}
+/* 录音 */
+.voice-wapper{
+  padding-bottom: 50rpx;
+}
+.voice-header{
+  margin: 50rpx 20rpx 20rpx;
+  height: 120rpx;
+  line-height: 60rpx;
+  position: relative;
+  text-align: center;
+}
+.voicetime{
+  color: #444;
+}
+.voice-text{
+  color: #a4a4a4;
+}
+.voice-icon{
+  margin:84rpx 138rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.voice-icon .voiceclear{
+  background: red;
+  border-radius: 50%;
+  color: #fff;
+}
+.voice-icon .voiceupload{
+  background: rgb(0, 255, 106);
+  border-radius: 50%;
+  color: #fff;
+}
+.voice-iconw{
+  display: inline-block;
+  padding: 34rpx 40rpx;
+  border-radius: 50%;
+  font-size: 60rpx;
+  background-color: #ffca62;
+  -webkit-box-shadow: 0 0 0 20rpx #ffecc7;
+  box-shadow: 0 0 0 20rpx #ffecc7;
+  color: #fff;
+}
+/* 上传图片 */
+.uploadimg-box{
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap:wrap;
+  padding: 0 8rpx;
+}
+.uploadimg-list{
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 22%;
+  margin: 8rpx;
+  position: relative;
+}
+.zhanm{padding-top: 100%;}
+.clearImg{
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  background: rgba(0,0,0,.4);
+}
+.uploadimg-list .iconfont{
+  font-size: 32rpx;
+  color: #fff;
+}
+.imgadd{
+  border: 1px dashed #ccc;
+  border-radius: 10rpx;
+  line-height: 100%;
+  text-align: center;
+}
+.addimg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+/* 表情包 */
+.emojis-list{
+  width: 56rpx;
+  height: 56rpx;
+  padding: 16rpx 10rpx;
+  display: block;
+}
+.emojis-wapper{
+  max-height: 380rpx;
+  border-bottom: 2rpx solid #ccc;
+  padding: 0 20rpx 38rpx 20rpx;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,58 @@
+/* pages/personal/personal.wxss */
+.personal-wapper{
+  background: #f7f7f7;
+}
+.personal-header{
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 7.142857rem;
+  margin-bottom: 0.57143rem;
+  padding: 0 1rem;
+  background-color: #fff;
+}
+.personal-header_left{
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1;
+  flex: auto;
+  align-items: center;
+  color: #444;
+}
+.personal-name{
+  color: #444;
+}
+.personal-leftt{
+  color: #a4a4a4;
+}
+.num{
+  color: rgb(255, 192, 66);
+}
+.member-logo{
+  display: block;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 4.28571rem;
+  height: 4.28571rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 1rem;
+  background: #ccc;
+
+}
+.personal-header_right{
+  padding: 0.4rem 1.8rem;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  background: #ffc042;
+  border-radius: 8rpx;
+}
+.allgetover{
+  padding: 1.07143rem 0;
+  color: #666;
+  font-size: 0.85714rem;
+  text-align: center;
+  font-family: sans-serif;
+}

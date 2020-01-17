@@ -1,0 +1,62 @@
+/* pages/personal/ integrals/ integrals.wxss */
+.integrals-header{
+  position: relative;
+  padding: 1.85714rem 1rem;
+  background-color: white;
+}
+.integrals-bang{
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  margin-right: 0.85714rem;
+  padding: 0.28571rem 0.71429rem 0.28571rem 2.14286rem;
+  font-size: 1rem;
+  background: url(https://cdn.myfans.cc/new-home/img/league-table-icon.09e3bfe8.svg) 0.78571rem center no-repeat;
+  border: 1px solid #ddd;
+  border-radius: 6rpx;
+}
+.integrals-header_top{
+  padding-bottom: 1.42857rem;
+  text-align: center;
+}
+.integrals-header-now{
+  padding-top:36rpx;
+  color: rgb(113, 113, 113);
+  font-size: 1.2rem;
+}
+.integrals-mypoints{
+  position: relative;
+  padding-top: 1.42857rem;
+  color: #444;
+  font-size: 2.5rem;
+}
+.integrals-watch{
+  position: absolute;
+  bottom: 6rpx;
+  margin-left: 20rpx;
+  color: #4a92ea;
+  font-size: 1rem;
+}
+.integrals-wrap{
+  margin-top: 0.57143rem;
+  padding: 1.42857rem;
+  text-align: center;
+  background: #fff;
+}
+.integrals-wrap-now{
+  margin-bottom: 20px;
+  color: rgb(113, 113, 113);
+  font-size: 1.2rem;
+}
+.integrals-card .icon-jifenshangcheng{color: #fa323b;}
+.integrals-card .icon-shoukuan{color: #fbaf55;}
+.integrals-card .icon-youhuiquan{color: #ff5572;}
+.card-wapper{
+  float: left;
+  width: 33.3%;
+  padding-bottom: 2.14286rem;
+  overflow: hidden;
+  color: #444;
+  font-size: 1rem;
+  text-align: center;
+}

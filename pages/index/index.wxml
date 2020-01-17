@@ -1,0 +1,281 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- header -->
+  <view class="header-wapper" style="background-image: url('{{headerImg}}')">
+    <view class="hot-moke"></view>
+    <view class="header-top">
+      <view class="iconfont icon-caidan" hidden="{{serchShow}}" bindtap="mokeShowL"></view>
+      <view bindtap='souShow' class="iconfont icon-xingtaiduICON_sousuo---copy" hidden="{{serchShow}}"></view>
+      <view class="sousuowapper {{serchShow?'sousuowapper1':''}}">
+        <view class="sousuok {{serchShow?'sousuok1':''}}">
+          <text class="iconfont icon-search"></text>
+          <input type='search'  placeholder="搜索热帖"></input>
+          <text class="sousuok-right" bindtap='cancelSou'>取消</text>
+        </view>
+      </view>
+    </view>
+    <view class="header-title">
+      <image src="{{userInfos.imgUrl}}"></image>
+      <text class="header-title-text" space="nbsp"> {{userInfos.name}}</text>
+    </view>
+  </view>
+  <!-- 打卡邀请 -->
+  <view class="link-wapper">
+    <view class="clockin" catchtap="goCheckin">
+      <text class="iconfont icon-daqia" > </text>
+      <text space="nbsp">打卡</text>
+    </view>
+    <view class="clockin invite" catchtap="goInvite">
+      <text class="iconfont icon-yaoqing"> </text>
+      <text space="nbsp"> 邀请</text>
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class="swiper-wapper">
+    <swiper indicator-dots='true' class="swiper1" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color='rgba(255, 255, 255, 0.9)'>
+      <block wx:for="{{backgroundList}}" wx:key="key">
+        <swiper-item>
+          <view class="swiper-item" style="background-image: url('{{item.img}}')">
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 2 -->
+    <view class="hot-wapper">
+      <text class="hottoke">热议话题</text>
+      <swiper indicator-dots='true' class="swiper1" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color='rgba(255, 255, 255, 0.9)'>
+        <block wx:for="{{backgroundList1}}" wx:key="key"> 
+          <swiper-item>
+            <view class="hot-moke"></view>
+            <view class="barrage" bindtap="barrageC">
+              <text class="iconfont icon-danmu"></text>
+              <text space="nbsp"> 弹幕</text>
+            </view>
+            <view class="hot-title">{{item.title}}</view>
+            <view class="swiper-item" style="background-image: url('{{item.img}}')">
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view> 
+  </view>
+  <!--弹幕wapper start -->
+  <view class="barrage-wapper" hidden="{{!barrageShow}}">
+    <view class="barrage-list">
+       <view class='displayGroup'>
+          <view class='dmGroup' wx:for="{{ dmData }}" wx:key="{{ item.id }}"  style="top:{{ item.top }}%; animation: dmAnimation {{item.time}}s linear {{ index*3 }}s ; ">
+            <view class='dmItem'>
+              <view class='dm'>
+                <text class='content'>{{ item.content }}</text>
+                <!-- <text>{{ item.zanNumber }}</text> -->
+              </view>
+            </view>
+          </view>
+          <view class='shadowOverlay'></view>
+      </view>
+    </view>
+    <view class="barrage-btn">
+      <view class="barrage-in"><text class="iconfont icon-pinglun"></text> <text space="nbsp"> 我要参与</text> </view>
+      <view class="barrage-in" bindtap="barrageC"><text class="iconfont icon-tianjia"></text> <text space="nbsp"> 关闭弹幕</text> </view>
+    </view>
+  </view>
+  <!--弹幕wapper end-->
+
+  <!-- 导航 -->
+  <view class="top_nav">
+    <view class="nav-name {{item.typeId == currentId ? 'navActive':''}}" wx:for='{{navList}}' id='{{item.typeId}}' catchtap='handleTap'  wx:key='key'>
+      <text class="boder-btitle">{{item.name}}</text>
+    </view>
+  </view>
+  
+  <!-- left -->
+  <view hidden="{{currentId!=1}}">
+    <!-- nav -->
+    <view class='navlist'>
+      <view class="{{showIcon?'':'navshow'}}">
+        <view class='navname' hover-class="navactive" wx:for='{{allList}}' wx:key='key'>{{item.name}}</view>
+      </view>
+      <view class="showicon" bindtap="controlNavIcon">
+        <text class="iconfont {{showIcon?'icon-top':'icon-xia'}}"></text>
+      </view>
+    </view>
+    <!-- detail -->
+    <view class='detaillist'>
+      <view class='detail-wapper' wx:for='{{dataList}}' wx:key="key">
+        <!-- item -->
+        <view class="posi-detail" hidden="{{!(item.recommend=='stick')}}">
+          <text class="iconfont icon-top"></text>
+          <text>置顶</text>
+        </view>
+        <view class="posi-detail jiaj" hidden="{{!(item.recommend=='heightligh')}}">
+          <text class="iconfont icon-shoucang"></text>
+          <text>加精</text>
+        </view>
+        <!-- 头像 start -->
+        <view class='detail-top'>
+          <view class='detail-left'>
+            <view class='detail-via'>
+              <image class="radioimg" src="{{item.logo}}"></image>
+            </view>
+            <view class='detail-show'>
+              <view class='detail-tl'>
+                <view class='detail-name'>{{item.name}}</view>
+                <view class='detail-label'>{{item.lable}}</view>
+              </view>
+              <view class='detail-time'>{{item.time}}</view>
+            </view>
+          </view>
+          <view class='detail-right'><text class='iconfont icon-more' bindtap='shwoMoke'  data-bean="{{item.id}}"></text></view>
+        </view>
+        <!-- 头像 End -->
+        <!-- content start-->
+        <view>
+          <view class='detial-content'>
+            <view>
+              <view class='content-top' bindtap="goDetail">
+                <view class='content-title'>{{item.title}}</view>
+                <view class='content-warp'>
+                  
+                  <text class='content-label'>{{item.topic}}</text>
+                  <view class='content-w'>
+                   {{item.content}}
+                  </view>
+                </view>
+              </view>
+              <!-- 详情内容 -->
+              <view class='content-detail'>
+                <!-- 微贴模板 -->
+                <view class='sorn-thawee'>
+                  <view class="sorn-imglist clearfix">
+                     <!-- 单图-->
+                    <view hidden="{{!(item.img.length==1)}}" class="sigle-photo" style="background-image: url('{{item.img[0]}}')">
+                    </view>
+                    <!-- 多图 -->
+                    <view hidden="{{item.img.length<2}}" class='sorn-list' wx:for="{{item.img}}" wx:for-item="{{item.img}}" wx:key='key' style="background-image: url('{{item.img[index]}}')">
+                    </view>                 
+                  </view>
+                  <!-- 视频 -->
+                  <view class="video-wapper" hidden="{{!item.video}}">
+  <video src="https://cdn.myfans.cc/177363mURn3D1576742312.mp4" class="videonow" enable-danmu danmu-btn controls></video>
+                  </view>
+                   <!--音乐-->
+                   <view class="music-wapper" hidden="{{!item.music}}"> 
+                    <view class="music-w">
+                    <audio class="audio-wapper" src="{{item.music.src}}" id="myAudio" controls loop></audio>
+                      <!-- <view class="music-left">
+                        <text class="iconfont icon-shoucang" bindtap="musicControl"></text>
+                      </view>  
+                      <view class="music-right">
+                        <view class="music-title">{{item.music.title}}</view>
+                        <view class="music-name">{{item.music.name}}</view>
+                      </view> -->
+                    </view>  
+                   </view>
+                </view>               
+              </view>
+            </view>
+            <!-- 点赞评论 -->
+            <view class='content-handel'>
+              <view>
+                <text class='iconfont icon-pinglun'></text>
+                <text class='handel-num'>{{item.review=='0'?'评论':item.review}}</text>
+              </view>
+              <view>
+                <text class='iconfont icon-zan'></text>
+                <text class='handel-num'>{{item.zang=='0'?'点赞':item.zang}}</text>
+              </view>
+            </view>
+            <!-- 评论列表 -->
+            <view class="comment-wapper">
+              <view class="comment-list" bindtap="commentC">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">评论内容</text>
+              </view>
+              <view class="comment-list">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">评论内容</text>
+              </view>
+              <view class="comment-list">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">sdfasdfasdfasdfasdfffffffffff</text>
+              </view>
+              <view class="allcomment">超过三条的全部评论</view>
+            </view>
+          </view>
+        </view>
+        <!-- content End-->  
+      </view>
+    </view>
+    <!-- weui插件 -->
+    <actionsheet  bindactiontap="btnClick" show="{{showActionsheet}}" actions="{{groups}}"></actionsheet>
+  </view>
+  <!-- 活跃 -->
+  <view hidden="{{currentId!=2}}">
+    <view class='brisk' hover-class="bg_ed" wx:for='{{briskList}}' wx:key='key'>
+      <view class='brisk-ranking'>
+        <view class='brisk-icon icon1' hidden="{{index!=0}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon icon2' hidden="{{index!=1}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon icon3' hidden="{{index!=2}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon rank'>{{index+1}}</view>
+      </view>
+      <view class='brisk-img'>
+        <cover-image class="radioimg" src='{{item.logo}}'></cover-image>
+      </view>
+      <view class='brisk-name'>
+        {{item.name}}
+      </view> 
+      <view class='brisk-info'>
+        {{item.info}}
+      </view>
+      <view class='brisk-right'></view>
+    </view>
+  </view>
+</view>
+<!-- 评论框 start-->
+<view class="comment-show {{commentShow?'comment-control':''}}">
+    <view class="comment-top">
+       <text class="comment-cancel" bindtap="commentC">取消</text>
+       <text>发表评论</text>
+       <text class="comment-publish">发表</text>
+    </view>
+    <view class="comment-center">
+      <view class="comment-text">
+        <textarea class="text-area" fixed  placeholder="回复谁谁谁"></textarea>
+      </view>
+    </view>
+    <view class="comment-relative">
+      <view>
+        <text class="iconfont icon-tupian mar-r"></text>
+        <text class="iconfont icon-yuyin"></text>
+      </view> 
+      <view class="comment-ejj">
+        <text class="iconfont icon-biaoqing"></text>
+      </view>
+    </view>
+</view>
+<!-- 评论框 end-->
+
+<!-- 弹出层 -->
+<view class="barrage-wapper" hidden="{{!mokeShow}}" catchtap="mokeShowL">
+    <view class="mokeimg-wapper">
+      <cover-image src="" class="mokeimg" catchtap="nones"></cover-image>
+      <view class="mokeclone-icon">
+        <!-- <text class="iconfont icon-guanbi2" bindtap="mokeShowL">x</text> -->
+      </view>
+    </view> 
+</view>
+<!-- 回到顶部 -->
+<view class="gotop" hidden='{{!floorstatus}}' bindtap="gotTop">
+  <text class="iconfont icon-go-top"></text>
+</view>
+
+<!--tab -->
+<view class='tab-top'></view>
+<view class="tab-bar">
+  <view class="tab-bar-border"></view>
+  <view wx:for="{{list}}" wx:key="key" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab" mode="cover">
+    <view class="iconfont  {{item.iconClass}} {{activea}}"></view>
+    <view class="userAvatar-wapper" wx:if='{{index==2}}'><open-data class='userAvatar' type="userAvatarUrl"></open-data></view>
+    <view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+  </view>
+</view>

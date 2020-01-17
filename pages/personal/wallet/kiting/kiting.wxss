@@ -1,0 +1,66 @@
+/* pages/personal/wallet/kiting/kiting.wxss */
+.kiting-wapper{
+  padding: 3.57143rem 1.07143rem;
+  color: #202020;
+  font-size: 1.07143rem;
+}
+.kiting-content{
+  padding: 1.07143rem;
+  background: #fff;
+}
+.kiting-input{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #eee;
+  margin-top: .35714rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.kiting-left{
+  display: inline-block;
+  width: 150rpx;
+  height: 1.57143rem;
+  overflow: hidden;
+  line-height: 1.57143rem;
+  vertical-align: top;
+  text-align: justify;
+  margin-right: 20rpx;
+}
+.kiting-input input{
+  webkit-box-flex: 1;
+  width: 60%;
+  height: 80rpx;
+  opacity: 0.5;
+}
+.kiting-input .name{
+  width: 36%;
+}
+.kiting-right{
+  color: #576895;
+  padding: 0 .85714rem;
+}
+.account-balance{
+  color: red;
+}
+.kiting-btn{
+  margin: 1.14286rem 0 1.07143rem;
+}
+.wallet-btn{
+  width:90%;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 1rem auto 0;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: #1aad19;
+  border: none;
+  display: block;
+  border-radius: 8rpx;
+}
+.kiting-info{
+  padding-top: 1.07143rem;
+  color: #999;
+  font-size: 1rem;
+}

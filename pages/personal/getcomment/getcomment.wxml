@@ -1,0 +1,34 @@
+<view class="mycomment-wapper">
+  <view class="getcomment-list">
+    <view class="getcomment-list-item" wx:for="{{dataList}}">
+      <view class="getcomment-list-top">
+        <view class="getcomment_top_left">
+          <view class="getcomment-list-img">
+             <image class="imgradius" src='{{item.toux}}'></image>  
+          </view>
+          <view class="getcomment-list-name">
+            <view class="getcomment-name"><text>{{item.name}}</text></view>
+            <view class="getcomment-time"><text>{{item.time}}</text></view>
+          </view>
+        </view>
+        <view class="getcomment_top_right">
+           <text class="getcomment-btn">回复</text> 
+        </view>
+      </view>
+      <view class="getcomment-list-bottom">
+        <view class="getcomment-comment">{{item.content}}</view>
+        <view class="getcomment-weet">
+          <view class="getcomment-weet-content" style="background-image: url('{{item.bgImg}}');">
+            <!-- <image class="weet-img" src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207"></image> -->
+          </view>
+          <view class="getcomment-weet-info">
+            <view class="info-name">{{item.name1}}</view>
+            <view class="info-content">{{item.info}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="nonecomment" hidden="{{dataList.length==0}}">已经显示全部啦～</view>
+    <view class="nonecomment" hidden="{{!dataList.length==0}}">您当前没有收到评论哦~</view>
+  </view>
+</view>

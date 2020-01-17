@@ -1,0 +1,32 @@
+<!--pages/integral/standings/standings.wxml-->
+<view class="standings-wapper">
+  <!-- 活跃 -->
+  <view class="standings-list">
+    <view class='brisk' hover-class="bg_ed" wx:for='{{briskList}}' wx:key='key'>
+      <view class='brisk-ranking'>
+        <view class='brisk-icon icon1' hidden="{{index!=0}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon icon2' hidden="{{index!=1}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon icon3' hidden="{{index!=2}}"><text class='iconfont icon-huangguan'></text></view>
+        <view class='brisk-icon rank'>{{index+1}}</view>
+      </view>
+      <view class='brisk-img'>
+        <cover-image class="radioimg" src='{{item.logo}}'></cover-image>
+      </view>
+      <view class='brisk-name'>
+        {{item.name}}
+      </view> 
+      <!-- <view class='brisk-info'>
+        {{item.info}}
+      </view> -->
+      <view class="brisk-rightt"> <text>{{item.num}} 分</text>   </view>
+    </view>
+  </view>
+  <!-- my -->
+  <view class="my-integral">
+    <view class="my-img">
+      <image src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207" class="radioimg"></image>
+    </view>
+    <text class="integral-name">名称</text>
+    <view class="my-cishu"><text>我的积分:14分</text></view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/integral/store/store.wxml-->
+<view class="mycomment-wapper">
+  <view class="store-wapper">
+    <view class="store-now">
+      <text>当前积分: 24</text>
+    </view>
+  </view>
+  <!-- 没有记录 -->
+  <view class="nonecomment"><text>暂无商品列表</text></view>
+</view>

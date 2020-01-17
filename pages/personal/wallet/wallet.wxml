@@ -1,0 +1,34 @@
+<!--pages/personal/wallet/wallet.wxml-->
+<view class="mycomment-wapper">
+  <view class="wallet-wapper">
+    <view class="wallet-top">
+      <view class="wallet-flex">
+        <view class="wallet-flex-item">
+          <view class="wallet-money"><text>总金额</text></view>
+          <view class="wallet-balanced"><text>100</text></view>
+        </view>
+        <view class="wallet-flex-item">
+          <view class="wallet-money"><text>余额</text></view>
+          <view class="wallet-balanced"><text>30</text></view>
+        </view>
+      </view>
+      <view class="">
+        <text class="wallet-btn" bindtap="goKiting">提现</text>
+      </view>
+      
+    </view>
+    <view class="wallet-bottom">
+      <view class="info-list" wx:for="{{infoList}}" wx:key="key" bindtap="goTap" data-url='{{item.url}}'>
+        <view class="info-list-left"><text class="iconfont {{item.icon}}"></text></view>
+        <view class="info-list-center">{{item.name}}</view>
+        <view class="info-list-right"><text class="iconfont icon-youbian"></text></view>
+      </view>
+    </view>
+    <view class="tips-title-wapper">
+      <view class="tips-title">关于赏金分配：</view>
+      <view class="tips-title">内容发布者＝89.4%</view>
+      <view class="tips-title">社区运营主＝10%</view>
+      <view class="tips-title">平台服务费＝0.6%</view>
+    </view>
+  </view>
+</view>

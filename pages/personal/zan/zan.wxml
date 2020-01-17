@@ -1,0 +1,24 @@
+<!--pages/personal/zan/zan.wxml-->
+<!--pages/personal/comment/comment.wxml-->
+<view class="mycomment-wapper">
+  <view class="listbox-wapper" wx:for="{{commentList}}">
+    <view class="listbox-item">
+      <text>我赞了这篇微帖</text> 
+    </view>
+    <view class="listbox-ret">
+      <view class="listbox-ret-img" style="background-image: url('{{item.bgimg}}')"></view>
+      <view class="listbox-ret-text">
+        <view class="listbox-ret-name">{{item.name}}</view>
+        <view class="listbox-ret-content">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 加载完成 -->
+  <view class="nonecomment" hidden="{{commentList.length==0}}">
+    <text>已经全部加载啦</text>
+  </view>
+  <!-- 没内容 -->
+  <view class="nonecomment" hidden="{{!commentList.length==0}}">
+    <text>当前没有评论~</text>
+  </view>
+</view>

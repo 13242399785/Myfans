@@ -1,0 +1,25 @@
+{
+  "usingComponents": {
+    "actionsheet": "../../weui/actionsheet/actionsheet"
+  },
+  "tabBar": {
+    "custom":true,
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "一元投"
+      },
+      {
+        "pagePath": "pages/tab-bar/tab-bar",
+        "text": "我的"
+      }
+    ]
+  }
+}

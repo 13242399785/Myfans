@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tab-bar/tab-bar",
+    "pages/logs/logs",
+    "pages/post/post",
+    "pages/member/member",
+    "pages/personal/personal/personal",
+    "pages/personal/info/info",
+    "pages/personal/comment/comment",
+    "pages/personal/zan/zan",
+    "pages/personal/gathering/gathering",
+    "pages/personal/contact/contact",
+    "pages/personal/attention/attention",
+    "pages/personal/collect/collect",
+    "pages/personal/getcomment/getcomment",
+    "pages/personal/getzan/getzan",
+    "pages/checkin/checkin",
+    "pages/discover/integral/integral",
+    "pages/discover/event/event",
+    "pages/discover/invite/invite",
+    "pages/discover/grand/grand",
+    "pages/discover/coupon/coupon",
+    "pages/discover/setting/setting",
+    "pages/discover/complaint/complaint",
+    "pages/personal/integral/integral",
+    "pages/integral/standings/standings",
+    "pages/integral/detail/detail",
+    "pages/personal/wallet/wallet",
+    "pages/personal/wallet/packet/packet",
+    "pages/personal/wallet/appreciation/appreciation",
+    "pages/personal/wallet/reward/reward",
+    "pages/personal/wallet/withdraw/withdraw",
+    "pages/integral/coupon/coupon",
+    "pages/integral/store/store",
+    "pages/integral/record/record",
+    "pages/personal/wallet/kiting/kiting",
+    "pages/personal/complaint/complaint",
+    "pages/personal/settings/settings",
+    "pages/personal/winner/winner",
+    "pages/personal/events/events",
+    "pages/detail/detail",
+    "pages/invite/invite"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffd600",
+    "navigationBarTitleText": "我的小程序",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "定位显示"
+    }
+  }
+}

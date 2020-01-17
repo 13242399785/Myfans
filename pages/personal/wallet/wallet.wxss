@@ -1,0 +1,143 @@
+/* pages/personal/wallet/wallet.wxss */
+.wallet-top{
+  padding: 1.42857rem 0;
+  text-align: center;
+  background: #fff;
+}
+.wallet-flex{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  box-align: center;
+  align-items: center;
+  box-direction: row;
+  box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.wallet-flex-item{
+  flex: 1;
+  min-width: 20px;
+  width: 0%;
+  border-right: 2rpx solid rgb(238, 238, 238);
+}
+.wallet-flex-item:last-child{
+  margin-left: 16rpx;
+  border-right:none;
+}
+.wallet-money{
+  margin-bottom: 0.57143rem;
+  font-weight: 500;
+  font-size: 1.42857rem;
+  text-align: center;
+}
+.wallet-balanced{
+  color: #4ebd52;
+  text-align: center;
+}
+.wallet-btn{
+  width: 90%;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 1rem auto 0;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: #1aad19;
+  border: none;
+  display: block;
+  border-radius: 8rpx;
+}
+.wallet-bottom{
+  margin-top: 1.17647059em;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 34rpx;
+  overflow: hidden;
+  position: relative;
+}
+.wallet-bottom::before{
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.wallet-bottom::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.tips-title-wapper{
+  padding-top: 40rpx;
+}
+.tips-title{
+  padding-top: 0.3em;
+  padding-right: 0.35714rem;
+  padding-left: 0.71429rem;
+  color: #888;
+  font-size: 1rem;
+  text-align: left;
+}
+/* info */
+.info-list{
+  height: 80rpx;
+  position: relative;
+  padding: 30rpx 30rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; 
+  align-items: center;
+  color: #444;
+  background: #fff;
+}
+.info-list::after{
+  content: '';
+  position: absolute;
+  height: 2rpx;
+  background: #ccc;
+  width: 90%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.info-list:last-child::after{
+  height: 0;
+}
+.info-list:hover{
+  background: #ECECEC;
+}
+.info-list .iconfont{
+  font-size: 36rpx;
+}
+.info-list-left{
+  margin-right:  0.92857rem;
+}
+.info-list-center{
+  padding-right: 0.571429rem;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+.info-list-right .iconfont{
+  color: #C8C8CD;
+}

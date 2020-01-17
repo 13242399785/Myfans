@@ -1,0 +1,120 @@
+/* pages/personal/getcomment/getcomment.wxss */
+.getcomment-list-item{
+  margin-bottom: 0.35714rem;
+  padding: 1.07143rem 0.85714rem;
+  background: #fff;
+}
+.getcomment-list-top{
+  padding: 0 0.85714rem;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.getcomment_top_left{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.getcomment-list-img{
+  position: relative;
+  margin-right: 0.71429rem;
+  width: 2.5rem;
+  overflow: hidden;
+  height: 2.5rem;
+}
+
+.getcomment-name{
+  display: block;
+  max-width: 9.28571rem;
+  height: 1.85714rem;
+  margin-right: 0.35714rem;
+  overflow: hidden;
+  font-size: 1.07143rem;
+  line-height: 1.85714rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #576895;
+  font-weight: 600;
+}
+.getcomment-time{
+  color: #a4a4a4;
+  font-size: .85714rem;
+}
+.getcomment_top_right{
+  flex: 0 0 10%;
+  justify-content: flex-end;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.getcomment-btn{
+  width: 2.85714rem;
+  max-width: 3.214286rem /* 45/14 */;
+  padding: 0.35714rem;
+  color: #717171;
+  font-size: 0.85714rem;
+  line-height: 1;
+  background-color: white;
+  border: 1px solid #717171;
+  border-radius: 8rpx;
+}
+.getcomment-comment{
+  padding: 0.71429rem 0 0.71429rem 0;
+}
+.getcomment-list-bottom{
+    padding-left:90rpx;
+    overflow: hidden;
+}
+.getcomment-weet{
+  position: relative;
+  height: 160rpx;
+  padding:0 0.71429rem 0 180rpx;
+  color: #717171;
+  background-color: #f9f9f9;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+}
+.weet-img{
+  width: 100%;
+}
+.getcomment-weet-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160rpx;
+    height: 160rpx;
+    line-height: 160rpx;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+}
+.getcomment-weet-info{
+  flex: 1;
+  width: 100%;
+}
+.info-name{
+  margin-bottom: 0.21429rem;
+  overflow: hidden;
+  color: #444;
+  font-weight: 500;
+  font-size: 1.07143rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-top:0.71429rem;
+}
+.info-content{
+  height: 2.85714rem;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0.92857rem;
+  line-height: 1.42857rem;
+  text-overflow: ellipsis;
+}

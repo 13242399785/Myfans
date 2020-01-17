@@ -1,0 +1,20 @@
+/* pages/integral/coupon/coupon.wxss */
+.posi-coupon{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 24rpx;
+  color: #444;
+  box-shadow: 0 4rpx 4rpx #444;
+  z-index: 999;
+  right: 1rem;
+  bottom: 6.71429rem;
+  text-align: center;
+  
+  /* line-height: 100rpx; */
+}
+.padd-t{
+  padding-top: 20rpx;
+}

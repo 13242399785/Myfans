@@ -1,0 +1,29 @@
+<!--pages/personal/wallet/kiting/kiting.wxml-->
+<view class="mycomment-wapper">
+  <view class="kiting-wapper">
+    <view class="kiting-content">
+      <view class="kiting-input">
+        <text class="kiting-left">姓 名</text>
+        <input placeholder="请输入姓名" class="name"></input>
+        <text class="kiting-right">修改</text>
+      </view>
+      <view class="kiting-input">
+        <text class="kiting-left">提现金额</text>
+        <input placeholder="请输入提现金额"></input>
+      </view>
+      <view class="kiting-input">
+        <text class="kiting-left">账户余额</text>
+        <text class="account-balance">0</text>
+        <text> 元</text>
+        <text class="kiting-right">全部提现</text>
+      </view>
+      <view class="kiting-btn">
+        <text class="wallet-btn">提现</text>
+      </view>
+    </view>
+    <view class="kiting-info">
+      <text>提现规则 \n 1.提现时间：工作日9:00 - 17:00 \n 2.到账时间：24小时（双休日，法定节假日和系统维护期顺延）\n 3.提现规则：每日提现一次 \n 4.提现需提供姓名信息进行安全校验,每个用户填写姓名需要与微信实名姓名一致
+      </text>
+    </view>
+  </view>
+</view>

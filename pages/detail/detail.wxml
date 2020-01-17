@@ -1,0 +1,25 @@
+<!--pages/detail/detail.wxml-->
+<view class="mycomment-wapper">
+  <view class="detail-conpoment">
+    <view class="feed-header-wrap">
+      <view class="detail-header">
+          <view class="detail-header-left">
+            <view class="detail-header-img">
+              <image class="imgradius" src="http://thirdwx.qlogo.cn/mmopen/vi_32/la09sicWXgcpMuQnn63DjNdeiblI9yyBR6M2SjCVreZBqP6AEib8ZFIGJ0nLXQzjyku3ghzvP3P6sp0SiaFB0iawsXQ/132"></image>
+            </view>
+            <view class="detaile-header-content">
+              <text class="detaile-title">名臣</text>
+              <text class="rank-label">标签</text>
+            </view>
+          </view>
+          <view class="detail-header-right">
+            <text class="iconfont icon-shudian iconfont-left"></text>
+            <text class="iconfont icon-zhuye"></text>
+          </view>
+      </view>
+    </view>
+    <view class="feed-detail">
+      
+    </view>  
+  </view>
+</view>

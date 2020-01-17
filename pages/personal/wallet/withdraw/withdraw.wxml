@@ -1,0 +1,5 @@
+<!--pages/personal/wallet/withdraw/withdraw.wxml-->
+<view class="mycomment-wapper">
+  <!-- 没有记录 -->
+  <view class="nonecomment"><text>您目前还没有提现记录</text></view>
+</view>

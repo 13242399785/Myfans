@@ -1,0 +1,125 @@
+/* pages/integral/standings/standings.wxss */
+/* 活跃 */
+.brisk{
+  background-color: #FFFFFF;
+  padding: 20rpx 30rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.brisk::before{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height:2rpx;
+    border-top: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    left: 30rpx;
+}
+.brisk-ranking{
+    display: inline-block;
+    width: 2.85714rem;
+    height: 2.5rem;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 1.64286rem;
+    line-height: 2.92857rem;
+    text-align: center;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 99;
+}
+.brisk-ranking .iconfont{
+  font-size: 50rpx;
+}
+.brisk-icon{
+  position: absolute;
+  z-index: 88;
+  left:50%;
+  top:50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+}
+.rank{
+  color: #999;
+}
+.brisk:first-child .rank,.brisk:nth-child(2) .rank,.brisk:nth-child(3) .rank{
+  color: #fff;
+  font-size: 28rpx;
+  padding-top: 16rpx;
+}
+.brisk-info{
+  color: #5cbbeb;
+  border-color: #5cbbeb;
+  position: relative;
+  display: inline-block;
+  min-width: 2.42857rem;
+  height: 1.14286rem;
+  margin-left: .35714rem;
+  padding: 0 .28571rem 0;
+  overflow: hidden;
+  font-size: .78571rem;
+  line-height: 1.07143rem;
+  text-align: center;
+  vertical-align: sub;
+  border-width: 2rpx;
+  border-style: solid;
+  border-radius: 3px;
+}
+.icon1{
+  color: #ffd858;
+}
+.icon2{color: #e4e4e4;}
+.icon3{color: #d68f41;}
+.brisk-img{
+    position: relative;
+    top: 0.21429rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    -webkit-transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease;
+}
+.standings-list{
+  padding-bottom:3.92857rem;
+}
+.brisk-rightt{
+ position: absolute;
+ right:30rpx;
+  color: #444;
+}
+.brisk-right::after{
+    content: " ";
+    display: inline-block;
+    height: 12rpx;
+    width: 12rpx;
+    border-width:4rpx 4rpx 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -4rpx;
+    position: absolute;
+    top: 50%;
+    margin-top: -8rpx;
+    right: 26rpx;
+}
+.bg_ed{
+ background-color: #ECECEC;
+}

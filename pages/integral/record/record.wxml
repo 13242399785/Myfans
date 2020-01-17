@@ -1,0 +1,46 @@
+<!--pages/personal/wallet/reward/reward.wxml-->
+<view class="mycomment-wapper">
+  <view class="attention-tab">
+      <block wx:for="{{['我的商品', '我的优惠券']}}" wx:key='key'>
+        <view class="attention-tab-item {{curIndex==index?'item-active':''}}" catchtap="tabHandel" data-index="{{index}}">
+          {{item}} 
+        </view>
+      </block>
+      <view class="attention-anima attention-wi {{curIndex==1?'right-go1':''}}"></view>
+  </view>
+  <view>
+    <view class="attention-content" hidden="{{curIndex!=0}}">
+    <!-- 收入 -->
+      <view class="nonecomment" hidden="{{!fansList.length==0}}"><text>您目前还没有兑换记录</text></view>
+      <!-- <view class="attention-list">
+        <view class="attention-item" wx:for="{{fansList}}" wx:key='key'>
+          <view class="attention-item-left"><image src="{{item.headImg}}" class="attention-item-img"></image></view>
+          <view class="attention-item-center">
+            {{item.name}}
+          </view>
+          <view class="attention-item-right">
+            {{item.time}}
+            <text class="iconfont icon-youbian"></text>
+          </view>
+        </view>
+      </view>
+      <view class="nonecomment" hidden="{{fansList.length==0}}"><text>已经显示全部啦～</text></view> -->
+    </view>
+    <view class="attention-content" hidden="{{curIndex!=1}}">
+      <!-- 支出-->
+      <view class="nonecomment" hidden="{{!fansList1.length==0}}"><text>暂无优惠</text></view></view>
+       <!-- <view class="attention-list">
+        <view class="attention-item" wx:for="{{fansList1}}" wx:key='key'>
+          <view class="attention-item-left"><image src="{{item.headImg}}" class="attention-item-img"></image></view>
+          <view class="attention-item-center">
+            {{item.name}}
+          </view>
+          <view class="attention-item-right">
+            {{item.time}}
+            <text class="iconfont icon-youbian"></text>
+          </view>
+        </view>
+        <view class="nonecomment" hidden="{{fansList1.length==0}}"><text>已经显示全部啦～</text></view>
+      </view> -->
+  </view>
+</view>

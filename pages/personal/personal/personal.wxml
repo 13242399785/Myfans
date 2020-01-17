@@ -1,0 +1,127 @@
+<view class="personal-wapper">
+  <!-- header -->
+  <view class="personal-header">
+    <view class="personal-header_left">
+      <view class="member-logo"><open-data class='member-img' type="userAvatarUrl"></open-data></view>
+      <view class="personal-leftt">
+        <view class="personal-name"><open-data type="userNickName" lang="zh_CN"></open-data></view>
+        <view bindtap="goAttention"><text>关注 </text><text class="num">0</text> | <text>粉丝</text>   <text class="num"> 0</text></view>
+      </view>
+    </view>
+    <view class="personal-header_right">
+      <text>设置</text>
+    </view>
+  </view>
+  <!-- c -->
+  <view class="personal-content">
+    <view class='detaillist'>
+      <view class='detail-wapper' wx:for='{{dataList}}' wx:key="key">
+        <!-- item -->
+        <!-- <view class="posi-detail" hidden="{{!(item.recommend=='stick')}}">
+          <text class="iconfont icon-top"></text>
+          <text>置顶</text>
+        </view>
+        <view class="posi-detail jiaj" hidden="{{!(item.recommend=='heightligh')}}">
+          <text class="iconfont icon-shoucang"></text>
+          <text>加精</text>
+        </view> -->
+        <!-- 头像 start -->
+        <view class='detail-top'>
+          <view class='detail-left'>
+            <view class='detail-via'>
+              <image class="radioimg" src="{{item.logo}}"></image>
+            </view>
+            <view class='detail-show'>
+              <view class='detail-tl'>
+                <view class='detail-name'>{{item.name}}</view>
+                <!-- <view class='detail-label'>{{item.lable}}</view> -->
+              </view>
+              <view class='detail-time'>{{item.time}}</view>
+            </view>
+          </view>
+          <view class='detail-right'><text class='iconfont icon-more' bindtap='shwoMoke'  data-bean="{{item.id}}"></text></view>
+        </view>
+        <!-- 头像 End -->
+        <!-- content start-->
+        <view>
+          <view class='detial-content'>
+            <view>
+              <view class='content-top'>
+                <view class='content-title'>{{item.title}}</view>
+                <view class='content-warp'>
+                  
+                  <text class='content-label'>{{item.topic}}</text>
+                  <view class='content-w'>
+                   {{item.content}}
+                  </view>
+                </view>
+              </view>
+              <!-- 详情内容 -->
+              <view class='content-detail'>
+                <!-- 微贴模板 -->
+                <view class='sorn-thawee'>
+                  <view class="sorn-imglist clearfix">
+                     <!-- 单图-->
+                    <view hidden="{{!(item.img.length==1)}}" class="sigle-photo" style="background-image: url('{{item.img[0]}}')">
+                    </view>
+                    <!-- 多图 -->
+                    <view hidden="{{item.img.length<2}}" class='sorn-list' wx:for="{{item.img}}" wx:for-item="{{item.img}}" wx:key='key' style="background-image: url('{{item.img[index]}}')">
+                    </view>                 
+                  </view>
+                  <!-- 视频 -->
+                  <view class="video-wapper" hidden="{{!item.video}}">
+  <video src="https://cdn.myfans.cc/177363mURn3D1576742312.mp4" class="videonow" enable-danmu danmu-btn controls></video>
+                  </view>
+                   <!--音乐-->
+                   <view class="music-wapper" hidden="{{!item.music}}"> 
+                    <view class="music-w">
+                    <audio class="audio-wapper" src="{{item.music.src}}" id="myAudio" controls loop></audio>
+                      <!-- <view class="music-left">
+                        <text class="iconfont icon-shoucang" bindtap="musicControl"></text>
+                      </view>  
+                      <view class="music-right">
+                        <view class="music-title">{{item.music.title}}</view>
+                        <view class="music-name">{{item.music.name}}</view>
+                      </view> -->
+                    </view>  
+                   </view>
+                </view>               
+              </view>
+            </view>
+            <!-- 点赞评论
+            <view class='content-handel'>
+              <view>
+                <text class='iconfont icon-pinglun'></text>
+                <text class='handel-num'>{{item.review=='0'?'评论':item.review}}</text>
+              </view>
+              <view>
+                <text class='iconfont icon-zan'></text>
+                <text class='handel-num'>{{item.zang=='0'?'点赞':item.zang}}</text>
+              </view>
+            </view> -->
+            <!-- 评论列表 -->
+            <view class="comment-wapper">
+              <view class="comment-list" bindtap="commentC">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">评论内容</text>
+              </view>
+              <view class="comment-list">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">评论内容</text>
+              </view>
+              <view class="comment-list">
+                <text class="usernamec">用户名</text><text space="nbsp"> : </text>
+                <text class="comment-content">sdfasdfasdfasdfasdfffffffffff</text>
+              </view>
+              <view class="allcomment">超过三条的全部评论</view>
+            </view>
+          </view>
+        </view>
+        <!-- content End-->  
+      </view>
+      <view class="allgetover">已经显示全部啦～</view>
+    </view>
+    <!-- weui插件 -->
+    <actionsheet  bindactiontap="btnClick" show="{{showActionsheet}}" actions="{{groups}}"></actionsheet>
+  </view>
+</view>

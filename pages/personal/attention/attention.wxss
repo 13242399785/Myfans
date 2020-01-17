@@ -1,0 +1,102 @@
+/* pages/personal/attention/attention.wxss */
+.attention-tab{
+  color: #444;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  justify-content: space-between;
+  position: relative;
+}
+.item-active{
+  color:#04BE02;
+}
+.attention-tab-item{
+  width:50%;
+  text-align: center;
+  line-height: 88rpx;
+}
+.attention-anima{
+  height: 3rpx;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #04BE02;
+  transition: all ease .5s;
+  float: right;
+}
+.right-go{
+  left: 50%;
+}
+.attention-list{
+  margin-top:rpx;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 34rpx;
+  overflow: hidden;
+  position: relative;
+}
+.attention-list::before{
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.attention-item{
+  padding: 20rpx 30rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.attention-item:active{
+  background: #ECECEC;
+}
+.attention-item::after{
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 2rpx;
+  border-bottom: 2rpx solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.attention-item-left{
+
+}
+.attention-item-img{
+  width: 2.857143rem /* 40/14 */;
+  height: 2.857143rem /* 40/14 */;
+  margin-right: 0.71429rem;
+  border-radius: 50%;
+}
+.attention-item-center{
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.attention-item-right{
+  position: relative;
+  text-align: right;
+  color: #999999;
+}
+.attention-item-right .iconfont{
+  font-size: 24rpx;
+}

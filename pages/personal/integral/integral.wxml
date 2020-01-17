@@ -1,0 +1,19 @@
+<!--pages/personal/ integrals/ integrals.wxml-->
+<view class="mycomment-wapper">
+  <view class="integrals-header">
+    <text class="iconfont integrals-bang" bindtap="goIntegralsB">积分榜</text>
+    <view class="integrals-header_top">
+      <view class="integrals-header-now">当前</view>
+      <view class="integrals-mypoints"><text>24</text><text class="integrals-watch" bindtap="goDetail">查看</text></view>
+    </view>
+  </view>
+  <view class="integrals-wrap clearfix">
+    <view class="integrals-wrap-now">积分兑换</view>
+    <view class="integrals-card clearfix">
+      <view class="card-wapper" wx:for="{{cardList}}" data-url='{{item.url}}' wx:key='key' bindtap="goTab">
+        <text class="iconfont {{item.icon}}"></text>
+        <view class="card-text">{{item.name}}</view>
+      </view>
+    </view>
+  </view> 
+</view>

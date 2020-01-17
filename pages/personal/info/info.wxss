@@ -1,0 +1,50 @@
+/* pages/personal/info/info.wxss */
+page{height:100%;overflow: hidden;}
+.info-wapper,.infolist-box{
+  background: #f7f7f7;
+  min-height: 100%;
+  overflow: auto;
+}
+.info-list{
+  height: 80rpx;
+  position: relative;
+  padding: 30rpx 30rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; 
+  align-items: center;
+  color: #444;
+  background: #fff;
+}
+.info-list::after{
+  content: '';
+  position: absolute;
+  height: 2rpx;
+  background: #ccc;
+  width: 90%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.info-list:last-child::after{
+  height: 0;
+}
+.info-list:hover{
+  background: #ECECEC;
+}
+.info-list .iconfont{
+  font-size: 36rpx;
+}
+.info-list-left{
+  margin-right:  0.92857rem;
+}
+.info-list-center{
+  padding-right: 0.571429rem;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+.info-list-right .iconfont{
+  color: #C8C8CD;
+}

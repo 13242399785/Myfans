@@ -1,0 +1,73 @@
+<!--pages/personal/settings/settings.wxml-->
+<view class="mycomment-wapper">
+  <view class="settings-wapper">
+    <view class="settings-title">
+      <text>个人资料</text>
+    </view>
+    <view class="settings-list">
+      <view class="settings-item highly">
+        <view></view>
+        <view class="settings-left"><text>头像</text></view>
+        <view class="settings-rigth">
+         <view class="settings-img"><image class="img" src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207"></image></view>
+        </view>
+      </view>
+      <view class="settings-item" bindtap="mokeControl">
+        <view></view>
+        <view class="settings-left"><text>昵称</text></view>
+        <view class="settings-rigth">
+         <view>{{userName}}</view>
+        </view>
+      </view>
+      <picker bindchange="bindSex" value="{{index}}" range="{{sexList}}">
+        <view class="settings-item">
+          <view></view>
+          <view class="settings-left"><text>性别</text></view>
+          <view class="settings-rigth">
+          <view>{{sex}}</view>
+          </view>
+        </view>
+      </picker>
+      <picker class="weui-btn" mode="date" value="{{date}}" start="" end="" bindchange="bindDateChange">
+        <view class="settings-item">
+          <view></view>
+          <view class="settings-left"><text>生日</text></view>
+          <view class="settings-rigth">
+          <view>{{date}}</view>
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="settings-list settings-xiao">
+      <view class="settings-item">
+        <view></view>
+        <view class="settings-left"><text>小程序校验码</text></view>
+        <view class="settings-rigth1">
+         <view>校验码</view> 
+        </view>
+      </view>
+    </view>
+    <view class="settings-btn">
+      <text>重新授权</text>
+    </view>
+    <!-- 显示框 -->
+    <view class="settings-moke" hidden="{{!mokeShow}}">
+      <view class="settings-title">
+        <text>修改昵称</text>
+      </view>
+      <view class="settings-list">
+        <view class="settings-item">
+          <view></view>
+          <view class="settings-left1"><text>昵称</text>
+            
+          </view>
+          <view><input placeholder="{{userName}}" id="userName"  bindinput='getInputValue' ></input></view>
+        </view>
+      </view>
+      <view class="moke-btn">
+        <view class="moke-sure"><button size="width:100%;" type="primary" bindtap="changeName">确认</button></view>
+        <view class="moke-mar moke-cancel"><button class="moke-cancel" type="warn" bindtap="mokeControl">取消</button></view>     
+      </view>
+    </view>
+  </view>
+</view>

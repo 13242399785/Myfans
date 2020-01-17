@@ -1,0 +1,4 @@
+<!--pages/personal/winner/winner.wxml-->
+<view class="mycomment-wapper">
+  <view class="nonecomment">暂无数据</view>
+</view>

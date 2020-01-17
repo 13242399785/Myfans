@@ -1,0 +1,17 @@
+<!--pages/personal/info/info.wxml-->
+<view class="info-wapper">
+  <view class="info-top">
+    <text class="iconfont icon-icon13 left-icon"></text>
+    <text class="info-top-center">消息小助手: 点击关注立即接收社区动态</text>
+    <text class="iconfont icon-youbian right-icon"></text>
+  </view>
+  <view class="infolist-box">
+    <view>
+      <view class="info-list" wx:for="{{infoList}}" wx:key="key" bindtap="goTap" data-url='{{item.url}}'>
+        <view class="info-list-left"><text class="iconfont {{item.icon}}"></text></view>
+        <view class="info-list-center">{{item.name}}</view>
+        <view class="info-list-right"><text class="iconfont {{item.name!='联系圈子'?'icon-youbian':''}}"></text></view>
+      </view>
+    </view>
+  </view>
+</view>

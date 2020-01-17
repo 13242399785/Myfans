@@ -1,0 +1,17 @@
+<!--pages/integral/detail/detail.wxml-->
+<view class="mycomment-wapper">
+  <view class="detail-header"><text>积分明细</text></view>
+  <view class="detail-list">
+    <view class="integral-detail-wapper" wx:for="{{detailList}}" wx:key="key">
+      <view class="detail-list-left">
+        <view class="list-lefttop">{{item.title}}</view>
+        <view class="list-leftbottom">{{item.time}}</view>
+      </view>
+      <view class="detail-list-right">{{item.score}}</view>
+    </view>
+  </view>
+  <!-- 没内容 -->
+  <view class="nonecomment">
+    <text>已经显示全部啦～</text>
+  </view>
+</view>

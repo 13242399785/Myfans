@@ -1,0 +1,59 @@
+/* pages/integral/detail/detail.wxss */
+.detail-header{
+  padding: 1rem;
+  color: #717171;
+  color: #444;
+  font-weight: 500;
+  font-size: 1.5rem;
+  background: #fff;
+}
+.integral-detail-wapper{
+  padding: 20rpx 30rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size:34rpx;
+  overflow: hidden;
+  position: relative;
+}
+.integral-detail-wapper::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.integral-detail-wapper::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.detail-list-left{
+  flex: 1;
+}
+.detail-list-right{
+  text-align: right;
+  color: #999999;
+}
+.list-leftbottom{
+  font-size: 14px;
+  color: #666;
+}

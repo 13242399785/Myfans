@@ -1,0 +1,13 @@
+<!--pages/integral/coupon/coupon.wxml-->
+<view class="mycomment-wapper">
+  <view class="store-wapper">
+    <view class="store-now">
+      <text>当前积分: 24</text>
+    </view>
+  </view>
+  <!--  youhui-->
+  <view class="posi-coupon" bindtap="goRecord"><view class="padd-t">我的</view>
+  <text>优惠券</text></view>
+  <!-- 没有记录 -->
+  <view class="nonecomment"><text>暂无优惠券</text></view>
+</view>
