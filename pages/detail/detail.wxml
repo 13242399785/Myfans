@@ -19,7 +19,128 @@
       </view>
     </view>
     <view class="feed-detail">
-      
+      <view class="feed-content">
+          <text>文章\n内容</text>
+          <view class="feed-img">
+            <image src="https://cdn.myfans.cc/177363_51578295_m1qtgiiyje.jpg?imageView2/0/w/600/format/webp|watermark/2/text/5qKm5Lqr56S-5Yy6/font/5a6L5L2T/fontsize/648/fill/I2Y4ZTcxYw==/dissolve/10/gravity/SouthEast"></image>
+          </view>
+      </view>
+      <view class="icons-list">
+        <view class="icons-item">
+          <text class="iconfont icon-fenxiang"></text>
+          <view><text>分享</text></view>
+        </view>
+         <view class="icons-item">
+          <text class="iconfont icon-shoukuan"></text>
+          <view><text>赞赏</text></view>
+        </view>
+         <view class="icons-item">
+          <text class="iconfont icon-collect"></text>
+          <view><text>收藏</text></view>
+        </view>
+      </view>
+      <view class="read-list">
+        <text>阅读 量</text>
+        <text>时间</text>
+      </view>
+    </view>
+    <view class="center-box">
+      <view class="pread-ad">
+        <view class="pread-item">
+          <image src="https://cdn.myfans.cc/177363_0_hluq6fr2o5.jpg"></image>
+          <view class="pread-name"><text>名称</text></view>
+          <view class="pread-detail"><text>描述</text></view>
+          <text class="pread-btn">查看</text>
+        </view>
+      </view>
+    </view>
+    <view class="detail-comment-nav clearfix">
+      <view class="comment-nav-left">
+        <view class="comment-tab-wrap">
+          <view class="comment-tab-item {{currentId=='0'?'current-item':''}}" bindtap="commentTab" data-id='0'>
+            <text class="">评论</text><text>0</text>
+          </view>
+          <view class="comment-tab-item {{currentId=='1'?'current-item':''}}" bindtap="commentTab" data-id='1'>
+            <text class="">赞</text><text>0</text>
+          </view>
+          <view  class="comment-line {{currentId=='1'?'comment-line1':''}}"></view>
+        </view>
+      </view>
+      <view class="comment-nav-right" hidden="{{currentId=='1'}}">
+          <text class="iconfont icon-paixu"></text>
+          <text> 排序</text>
+      </view>
+    </view>
+    <view class="comment-control">
+        <!-- 评论列表 -->
+        <view class="comment-control-c" hidden="{{currentId=='1'}}">
+          <!--<view class="comment-list-item">
+            <view class="list-item-header">
+              <view class="item-header-left">
+                <view class="item-header-img">
+                  <image class="radioimg" src="https://cdn.myfans.cc/177363_9594201_z7maikp8vt.jpg?imageView2/1/w/150/h/150"></image>
+                </view>
+                <view class="">
+                  <view class="header-name"><text class="hn">name</text></view>
+                  <view class="header-time"><text class="mr">几楼</text><text>时间</text></view>
+                </view>
+              </view>
+              <view class="item-header-right">
+                <text class="iconfont icon-xihuan"></text>
+                <text class="discuss_splice"></text>
+                <text class="iconfont icon-more"></text>
+              </view>
+            </view>
+            <view class="comment-wrap">
+              <view class="comment-content"><text>评论内容</text></view>
+              <view class="comment-reply">
+                <view class="comment-reply-item">
+                  <text class="nickname">名称</text>
+                  <text> 回复 </text>
+                  <text class="nickname">名称</text>
+                  <text class="iconfont icon-more"></text>
+                  <view class="comment-reply-content">
+                    <text>回复内容</text>  
+                  </view>
+                  <view class="comment-reply-time">
+                    <text>2019/12/25 19:27</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>-->
+          <!-- 没有评论 -->
+          <view class="no-comments">
+            <text class="iconfont icon-shafa"></text>
+            <view class="pd-b"><text>暂无评论，快去抢沙发!</text></view>
+          </view>
+        </view>
+        <!-- 点赞列表 -->
+        <view class="comment-control-d"  hidden="{{currentId=='0'}}">
+          <!--<view class="zan-item">
+            <view class="zan-img">
+              <image class="radioimg" src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207"></image>
+            </view>
+            <view class="zan-content">
+              <text class="">名称</text>
+            </view>
+          </view>-->
+          <!-- 没有点赞 -->
+            <view class="no-comments">
+              <text class="iconfont icon-zan"></text>
+              <view class="pd-b"><text>暂无点赞，赶紧点个赞吧～</text></view>
+            </view>
+        </view>
     </view>  
+  </view>
+  
+  <!--底部  -->
+  <view class="bottom-box">
+    <text class="iconfont icon-zuobian" bindtap="goBack"></text>
+    <input placeholder="评论" class="bottom-input"></input>
+    <view class="bottom-right">
+      <text class="iconfont icon-xihuan"> </text>
+      <text class="bottom-num"> 123</text>
+    </view>
   </view>
 </view>

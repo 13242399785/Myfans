@@ -23,7 +23,7 @@
   <view class="link-wapper">
     <view class="clockin" catchtap="goCheckin">
       <text class="iconfont icon-daqia" > </text>
-      <text space="nbsp">打卡</text>
+      <text space="nbsp"> 打卡</text>
     </view>
     <view class="clockin invite" catchtap="goInvite">
       <text class="iconfont icon-yaoqing"> </text>

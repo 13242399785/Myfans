@@ -5,9 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentId:'0',
   },
-
+  commentTab(e){
+    let id=e.currentTarget.dataset.id;
+    this.setData({
+      currentId: id
+    })
+  },
+  //返回上一页
+  goBack(){
+    wx.navigateBack();
+  },
   /**
    * 生命周期函数--监听页面加载
    */
