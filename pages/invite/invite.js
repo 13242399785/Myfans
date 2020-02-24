@@ -22,7 +22,7 @@ Page({
     //   ctx.setTextAlign('center')    // 文字居中
     //   ctx.setFillStyle('#000000')  // 文字颜色：黑色
     //   ctx.setFontSize(22)         // 文字字号：22px
-    //   ctx.fillText("作者：华仔", 600 / 2, 500)
+      // ctx.fillText("作者：华仔", 600 / 2, 500)
 
     //   ctx.stroke()
     //   ctx.draw()
@@ -41,9 +41,11 @@ Page({
     ctx.setFillStyle("#fff");
     ctx.setFontSize(20);                               //字大小
     ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线
+    ctx.fillText("作者：华仔", 200,20);
     ctx.fillText('今天天气好晴朗', 150, 280);            //150:canvas画布宽300，取1/2，中间，280：纵向位置
     ctx.draw();
   },
+  //保存图片
   saveImg() {
     wx.canvasToTempFilePath({
       x: 0,

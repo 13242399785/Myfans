@@ -1,0 +1,49 @@
+<!--component/comment.wxml-->
+<view class="comment-show {{showCancel?'comment-control':''}}">
+    <view class="comment-top">
+       <text class="comment-cancel" bindtap="commentC">取消</text>
+       <text>发表评论</text>
+       <text class="comment-publish">发表</text>
+    </view> 
+    <view class="comment-center">
+      <view class="comment-text">
+        <!-- <textarea class="text-area" fixed  placeholder="回复谁谁谁"></textarea> -->
+        <scroll-view  class="content-textarea">
+          <editor read-only='{{editorShow}}'  placeholder="回复" class="comment-textarea" id="editors1" bindready="onEditorReady" bindfocus='emojisH' bindblur='editorBlur' ></editor>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="comment-relative">
+      <view>
+        <text class="iconfont icon-tupian mar-r" bindtap="imgShow"></text>
+        <text class="iconfont icon-yuyin"></text>
+      </view> 
+      <view class="comment-ejj">
+        <text class="iconfont icon-biaoqing"></text>
+      </view>
+    </view>
+    <!-- 图片 -->
+    <view class="images-list" hidden="{{!imagesUpload}}">
+      <view class="uploadimg-list" wx:for='{{imagesList}}' style="background-image:url('{{item}}')" wx:key='key'>
+        <text class="iconfont icon-guanbi1 clearImg" bindtap="clearImg"  data-inde="{{index}}"></text>
+        <view class="zhanm"></view>
+      </view>
+      <view class="uploadimg-list imgadd" bindtap="chooseImg" hidden="{{imagesList.length>0}}">
+        <text class="iconfont icon-tianjia addimg"></text>
+        <view class="zhanm"></view>
+      </view>
+    </view>
+    <!-- 表情包 -->
+    <view class="emjj-wapper">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">
+              <image wx:for='{{emojisList}}' bindtap="chooseEmojis" class='emojis-list' src="../../wxParse/emojis/{{index<10?'0'+index:index}}.gif" data-index='{{index}}' wx:key='key'></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+</view>

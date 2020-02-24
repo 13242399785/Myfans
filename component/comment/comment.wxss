@@ -1,0 +1,137 @@
+/* component/comment.wxss */
+@import "../../common/common.wxss";
+/* 评论框 */
+.comment-show{
+  position: fixed;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  top:100%;
+  left: 0;
+  transition: all ease .5s;
+  z-index: -1;
+}
+.content-textarea{
+    color: #000;
+    line-height: 51rpx;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    overflow: auto;
+    display: block;
+    resize: none;
+    word-break: break-word;
+    word-wrap: break-word;
+    height: 300rpx;
+}
+.comment-control{
+  top: 0;
+  z-index: 9999;
+}
+.comment-top{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  height: 3.14286rem;
+  font-size: 1.14286rem;
+  line-height: 3.14286rem;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.comment-cancel{
+  padding-left: 0.85714rem;
+}
+.comment-publish{
+  padding-right: 0.85714rem;
+}
+.comment-center{
+  width: 100%;
+  padding: 0.85714rem;
+  color: #000;
+  font-size: 28rpx;
+}
+.text-area{
+  min-height: 200rpx;
+  overflow: auto;
+}
+.comment-relative{
+  height: 3.21429rem;
+  line-height: 3.21429rem;
+  padding:0 0.85714rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.comment-relative .iconfont{
+  font-size: 42rpx;
+  color: rgb(221, 221, 221);
+}
+.mar-r{
+  margin-right: 1.42857rem;
+}
+/* 图片 */
+.uploadimg-list{
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 22%;
+  margin: 8rpx;
+  position: relative;
+}
+.zhanm{padding-top: 100%;}
+.clearImg{
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  background: rgba(0,0,0,.4);
+}
+.uploadimg-list .iconfont{
+  font-size: 32rpx;
+  color: #fff;
+}
+.imgadd{
+  border: 1px dashed #ccc;
+  border-radius: 10rpx;
+  line-height: 100%;
+  text-align: center;
+}
+.addimg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+/*评论框 */
+.comment-textarea{
+  width:94%;
+}
+/* 表情包 */
+.emojis-list{
+  width: 56rpx;
+  height: 56rpx;
+  padding: 16rpx 10rpx;
+  display: block;
+}
+.swiper-item{
+  max-height: 380rpx;
+  border-bottom: 2rpx solid #ccc;
+  padding: 0 20rpx 38rpx 20rpx;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+}

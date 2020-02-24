@@ -91,7 +91,7 @@
       <!-- 表情插件 -->
       <view class="emojis-box" hidden="{{!emojisShow}}">
         <view class="emojis-wapper">
-          <image wx:for='{{emojisList}}' bindtap="chooseEmojis" class='emojis-list' src="http://192.168.5.147:5001/emojis/{{index<10?'0'+index:index}}.gif" data-index='{{index}}' wx:key='key'></image>
+          <image wx:for='{{emojisList}}' bindtap="chooseEmojis" class='emojis-list' src="../../wxParse/emojis/{{index<10?'0'+index:index}}.gif" data-index='{{index}}' wx:key='key'></image>
         </view>
       </view>
 

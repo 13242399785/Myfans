@@ -493,7 +493,7 @@ Page({
       index='0'+index;
     }
     that.editorCtx.insertImage({
-      src: 'http://192.168.5.147:5001/emojis/' +index+'.gif',
+      src: '../../wxParse/emojis/' +index+'.gif',
       width: '20px',
       height: '20px',
     })
@@ -506,8 +506,9 @@ Page({
   // 初始化编辑器
   onEditorReady() {
     let that=this;
-    console.log(wx.createSelectorQuery().select('#editors'))
+    // console.log(wx.createSelectorQuery().select('#editors'))
     wx.createSelectorQuery().select('#editors').context(function (res) {
+      console.log(res)
       that.editorCtx = res.context    
       if (wx.getStorageSync("content")) { // 设置~历史值
         that.editorCtx.insertText(wx.getStorageSync("content")) // 注意：插入的是对象

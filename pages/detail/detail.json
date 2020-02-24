@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "actionsheet": "../../weui/actionsheet/actionsheet",
+    "commentSheet": "../../component/comment/comment"
+  }
 }

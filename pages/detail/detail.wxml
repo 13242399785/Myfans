@@ -13,7 +13,7 @@
             </view>
           </view>
           <view class="detail-header-right">
-            <text class="iconfont icon-shudian iconfont-left"></text>
+            <text class="iconfont icon-shudian iconfont-left" bindtap="showActionsheet"></text>
             <text class="iconfont icon-zhuye"></text>
           </view>
       </view>
@@ -40,7 +40,7 @@
         </view>
       </view>
       <view class="read-list">
-        <text>阅读 量</text>
+        <text>阅读 123</text>
         <text>时间</text>
       </view>
     </view>
@@ -74,27 +74,27 @@
     <view class="comment-control">
         <!-- 评论列表 -->
         <view class="comment-control-c" hidden="{{currentId=='1'}}">
-          <!--<view class="comment-list-item">
+          <view class="comment-list-item" wx:for="{{commentList}}" wx:key="{{key}}">
             <view class="list-item-header">
               <view class="item-header-left">
                 <view class="item-header-img">
-                  <image class="radioimg" src="https://cdn.myfans.cc/177363_9594201_z7maikp8vt.jpg?imageView2/1/w/150/h/150"></image>
+                  <image class="radioimg" src="{{item.author_info.img}}"></image>
                 </view>
                 <view class="">
-                  <view class="header-name"><text class="hn">name</text></view>
-                  <view class="header-time"><text class="mr">几楼</text><text>时间</text></view>
+                  <view class="header-name"><text class="hn">{{item.author_info.name}}</text></view>
+                  <view class="header-time"><text class="mr">{{item.floor}}楼</text><text>{{item.time}}</text></view>
                 </view>
               </view>
               <view class="item-header-right">
                 <text class="iconfont icon-xihuan"></text>
                 <text class="discuss_splice"></text>
-                <text class="iconfont icon-more"></text>
+                <text class="iconfont icon-more" bindtap="showActionsheet1"></text>
               </view>
             </view>
             <view class="comment-wrap">
               <view class="comment-content"><text>评论内容</text></view>
               <view class="comment-reply">
-                <view class="comment-reply-item">
+                <view class="comment-reply-item" bindtap="showComment">
                   <text class="nickname">名称</text>
                   <text> 回复 </text>
                   <text class="nickname">名称</text>
@@ -108,28 +108,28 @@
                 </view>
               </view>
             </view>
-          </view>-->
+          </view>
           <!-- 没有评论 -->
-          <view class="no-comments">
+          <view class="no-comments" hidden="{{commentList.length>0}}">
             <text class="iconfont icon-shafa"></text>
             <view class="pd-b"><text>暂无评论，快去抢沙发!</text></view>
           </view>
         </view>
         <!-- 点赞列表 -->
         <view class="comment-control-d"  hidden="{{currentId=='0'}}">
-          <!--<view class="zan-item">
+          <view class="zan-item" wx:for="{{zanList}}" wx:key="{{key}}">
             <view class="zan-img">
-              <image class="radioimg" src="http://thirdqq.qlogo.cn/g?b=oidb&k=Q9dyo26SEeSQGw3ForMyyw&s=100&t=1500092207"></image>
+              <image class="radioimg" src="{{item.img}}"></image>
             </view>
             <view class="zan-content">
-              <text class="">名称</text>
+              <text class="">{{item.name}}</text>
             </view>
-          </view>-->
+          </view>
           <!-- 没有点赞 -->
-            <view class="no-comments">
-              <text class="iconfont icon-zan"></text>
-              <view class="pd-b"><text>暂无点赞，赶紧点个赞吧～</text></view>
-            </view>
+          <view class="no-comments" hidden="{{zanList.length>0}}">
+            <text class="iconfont icon-zan"></text>
+            <view class="pd-b"><text>暂无点赞，赶紧点个赞吧～</text></view>
+          </view>
         </view>
     </view>  
   </view>
@@ -137,10 +137,14 @@
   <!--底部  -->
   <view class="bottom-box">
     <text class="iconfont icon-zuobian" bindtap="goBack"></text>
-    <input placeholder="评论" class="bottom-input"></input>
+    <input disabled="disabled" placeholder="评论" class="bottom-input" bindtap="showComment"></input>
     <view class="bottom-right">
       <text class="iconfont icon-xihuan"> </text>
       <text class="bottom-num"> 123</text>
     </view>
   </view>
+  <!-- weui插件 -->
+    <actionsheet  bindactiontap="btnClick" show="{{showActionsheet}}" actions="{{listName==true?groups:groups1}}"></actionsheet>
+    <!-- 评论框插件 -->
+    <commentSheet showCancel="{{commentShow}}"></commentSheet>
 </view>
