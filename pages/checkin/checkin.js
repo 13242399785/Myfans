@@ -1,3 +1,4 @@
+import promisify from '../../utils/promise.util'
 Page({
   /**
    * 页面的初始数据
@@ -11,7 +12,12 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
+    nowClick:0,
+    avatarUrl:'',
+    name:'',
     nowText: '今天还没有打卡，快去打卡吧～',
+    punchW:'',
+    punchH:'',
     rankingList:[
       { name: '名称', img:'http://thirdwx.qlogo.cn/mmopen/vi_32/PQdDfb4ibeNXJUpa9kW0avFTar23odlORpGbiapibdoQk8PQ1G7qoXMuPExlgXI0eYKF8d05MtqJrBJkvJsibb2PMQ/132',rank:1,clockIn:'15'},
       { name: '名称', img: 'http://thirdwx.qlogo.cn/mmopen/vi_32/PQdDfb4ibeNXJUpa9kW0avFTar23odlORpGbiapibdoQk8PQ1G7qoXMuPExlgXI0eYKF8d05MtqJrBJkvJsibb2PMQ/132', rank: 1, clockIn: '10' },
@@ -119,10 +125,38 @@ Page({
    * 点击当前日期
   */
   nowLook(e){
+    console.log(e);
     let y = e.currentTarget.dataset.year,
         m = e.currentTarget.dataset.month,
         d = e.currentTarget.dataset.datenum;
-    console.log(y + '-' + m + '-' + d)
+    console.log(y + '-' + m + '-' + d);
+    console.log(this.data.isToday)
+    this.setData({
+      nowClick:""+y+m+d
+    })
+  },
+  //画打卡图片
+  canvasImgs() {
+    const ctx = wx.createCanvasContext('punchCard');
+    ctx.setFillStyle('#fff');  
+    ctx.fillRect(0, 0, 335, 203);
+    ctx.drawImage('../../common/images/ding.jpg', 0, 0, this.data.punchW, 203);   //里面的参数无非就是图片放置的位置即图片的横纵坐标，图片的宽高
+    //呢称和文字
+    ctx.setFillStyle("#fff");
+    ctx.setFontSize(16);                               //字大小
+    ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线
+    ctx.fillText("作者：" + this.data.name, 150, 100);
+    ctx.fillText('叮~收到一份邀请卡，快来看看吧？', 150, 250);            //150:canvas画布宽300，取1/2，中间，280：纵向位置
+    ctx.save();
+    ctx.setFontSize(20);
+    ctx.setTextAlign('center');
+    //画头像
+    let cx = 30 + 25;
+    let cy = 320 + 25;
+    ctx.arc(cx, cy, 25, 0, 2 * Math.PI);
+    ctx.clip();
+    ctx.drawImage(this.data.avatarUrl, 30, 320, 52, 52);//需要先保存头像图片到本地
+    ctx.draw();
   },
   /**
    * 返回首页
@@ -136,6 +170,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取设备信息
+    let myCanvasWidth, myCanvasHeight,that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        myCanvasWidth = res.windowWidth -20
+        myCanvasHeight = res.windowHeight - 400
+      },
+    })
+    
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -143,15 +187,36 @@ Page({
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate()
+      isToday: '' + year + month + now.getDate(),
+      punchW: myCanvasWidth,
+      punchH: 204
     })
+    //获取授权信息
+    var app = getApp();
+    console.log(app.globalData.userInfo)
+    this.setData({
+      name: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
+    wx.getImageInfo({
+      src: that.data.avatarUrl,
+      success: function (sres) {       //访问存放微信用户头像的Url 
+        wx.saveImageToPhotosAlbum({   //下载用户头像并保存到相册（默认为手机相册weixin目录下）
+          filePath: sres.path,
+        })
+      }
+    })
+    // canvas
+    const wxGetImageInfo = promisify.promisify(wx.getImageInfo);
+    that.canvasImgs();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let that=this;
+    // that.canvasImg();
   },
 
   /**

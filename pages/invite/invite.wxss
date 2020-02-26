@@ -1,1 +1,22 @@
 /* pages/discover/invite/invite.wxss */
+.save-btn{
+  width:150rpx;
+  height:50rpx;
+  background: rgb(255, 214, 0);
+  color:#fff;
+  text-align:center;
+  line-height:50rpx;
+  border-radius:10rpx;
+  font-size:32rpx;
+  margin:20rpx auto;
+}
+.bottom-detail{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  color: #999;
+  font-size: 1rem;
+  background: #fff;
+}

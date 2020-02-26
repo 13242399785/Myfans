@@ -6,43 +6,59 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579241540704&di=1ccfa2be46296ff2512363cef4d34060&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D792843848%2C2552580181%26fm%3D214%26gp%3D0.jpg"
+    img: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1579241540704&di=1ccfa2be46296ff2512363cef4d34060&imgtype=jpg&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D792843848%2C2552580181%26fm%3D214%26gp%3D0.jpg",
+    name:'',//微信呢称
+    avatarUrl:''//微信头像
   },
   onLoad: function (options) {
     //注意：图片的域名需要在后台配置  
     let that = this;
+    //获取授权信息
+    var app = getApp();
+    this.setData({
+      name: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    })
+    wx.getImageInfo({
+      src: that.data.avatarUrl,
+      success: function (sres) {       //访问存放微信用户头像的Url 
+        wx.saveImageToPhotosAlbum({   //下载用户头像并保存到相册（默认为手机相册weixin目录下）
+          filePath: sres.path,
+        })
+      }
+    })
+    console.log(app.globalData.userInfo)
+    // canvas
     const wxGetImageInfo = promisify.promisify(wx.getImageInfo);
-    // wxGetImageInfo({
-    //   src: that.data.img
-    // }).then(res => {
-    //   const ctx = wx.createCanvasContext('myCanvas')
-    //   ctx.drawImage(res.path, 0, 0, 600, 900)
-    //   // 作者名称
-    //   that.canvasImg();
-    //   ctx.setTextAlign('center')    // 文字居中
-    //   ctx.setFillStyle('#000000')  // 文字颜色：黑色
-    //   ctx.setFontSize(22)         // 文字字号：22px
-      // ctx.fillText("作者：华仔", 600 / 2, 500)
-
-    //   ctx.stroke()
-    //   ctx.draw()
-    // })
     that.canvasImg();
-    // console.log(promisify.promisify)
+    
   },
   canvasImg() {
     const ctx = wx.createCanvasContext('myCanvas');
-    const grd = ctx.createLinearGradient(0, 0, 300, 0);//创建了一个线性的渐变颜色 前两个参数起点横纵坐标，后两个参数终点横纵坐标
-    grd.addColorStop(0, '#000');
-    grd.addColorStop(1, '#fff');
-    ctx.setFillStyle(grd);                             //为创建的canvans上下文添充颜色  如果没有设置 fillStyle，默认颜色为 black。
+    // const grd = ctx.createLinearGradient(0, 0, 300, 0);//创建了一个线性的渐变颜色 前两个参数起点横纵坐标，后两个参数终点横纵坐标
+    // grd.addColorStop(0, '#000');
+    // grd.addColorStop(1, '#fff');
+    ctx.setFillStyle('#fff');                             //为创建的canvans上下文添充颜色  如果没有设置 fillStyle，默认颜色为 black。
     ctx.fillRect(0, 0, 300, 400);
-    ctx.drawImage(this.data.img, 50, 100, 200, 145);   //里面的参数无非就是图片放置的位置即图片的横纵坐标，图片的宽高
-    ctx.setFillStyle("#fff");
-    ctx.setFontSize(20);                               //字大小
+    ctx.drawImage('../../common/images/timg.jpg', 0, 0, 300, 280);   //里面的参数无非就是图片放置的位置即图片的横纵坐标，图片的宽高
+    //呢称和文字
+    ctx.setFillStyle("#59563d");
+    ctx.setFontSize(16);                               //字大小
     ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线
-    ctx.fillText("作者：华仔", 200,20);
-    ctx.fillText('今天天气好晴朗', 150, 280);            //150:canvas画布宽300，取1/2，中间，280：纵向位置
+    ctx.fillText("作者：" + this.data.name, 150, 100);
+    ctx.fillText("作者：" + this.data.name, 150,100);
+    ctx.fillText('叮~收到一份邀请卡，快来看看吧？', 150, 250);            //150:canvas画布宽300，取1/2，中间，280：纵向位置
+    ctx.save(); 
+    ctx.setFontSize(20);
+    ctx.setTextAlign('center');
+    ctx.fillText("邀请您加入", 150, 160);
+    //画头像
+    let cx=30+25;
+    let cy=320+25;
+    ctx.arc(cx,cy,25,0,2*Math.PI);
+    ctx.clip();
+    ctx.drawImage(this.data.avatarUrl,30,320,52,52);//需要先保存头像图片到本地
+    ctx.drawImage('../../common/images/qr.jpg', 90, 280, 120, 120);
     ctx.draw();
   },
   //保存图片
@@ -68,6 +84,12 @@ Page({
         })
       }
     })
+  },
+  //获取用户信息
+  onGotUserInfo: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -146,6 +146,15 @@ Page({
       url: '../detail/detail'
     })
   },
+  // onPullDownRefresh: function () { 
+  //   wx.startPullDownRefresh()
+  //   console.log('下拉');
+  //   setTimeout(function(){
+  //     wx.hideNavigationBarLoading(); //完成停止加载图标
+  //     wx.stopPullDownRefresh();
+  //   },2000)
+    
+  // },//监听下拉
   onReady: function (e) {
     // 使用 wx.createAudioContext 获取 audio 上下文 context
     this.audioCtx = wx.createAudioContext('myAudio')

@@ -12,8 +12,14 @@
   <!-- 内容 -->
   <view class="checkin-content">
     <!--打卡-->
-    <view class="checkin-daka-wapper" hidden="{{curIndex!=0}}">
-      打卡
+    <view class="checkin-daka-wapper checkin-daka" hidden="{{curIndex!=0}}">
+      <canvas canvas-id="punchCard" style="width:{{punchW}}px;height:{{punchH}}px;margin:auto"/>
+      <view class="posi-btn">
+        <view class="posi-bg"> <text class="iconfont icon-shuaxin"></text> </view>
+        <view class="posi-bg"> <text class="iconfont icon-tupian"></text> </view>
+        <view class="posi-bg"> <text class="iconfont icon-comment"></text> </view>
+      </view>
+      <view class="ding-btn">打卡生成图片</view>
     </view>
     <!-- 足迹 -->
     <view class="checkin-daka-wapper" hidden="{{curIndex!=1}}">
@@ -42,9 +48,9 @@
           <!-- 日期 -->
           <view class='date-box'>
             <block wx:for='{{dateArr}}' wx:key='key'>
-              <view class='{{isToday == item.isToday ? "nowDay" : ""}}'>
+              <view class="{{isToday == item.isToday?'nowDay':''}}">
                 <view class='date-head' catchtap='nowLook' data-year='{{year}}' data-month='{{month}}' data-datenum='{{item.dateNum}}'> 
-                  <view>{{item.dateNum}}</view>
+                  <view class='{{nowClick==item.isToday?"cliday": ""}}'>{{item.dateNum}}</view>
                   <!-- 小红点 -->
                   <text class="{{item.dateNum!=null?'diandian':''}}"></text>
                 </view>
