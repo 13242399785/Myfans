@@ -13,9 +13,13 @@ Page({
     isTodayWeek: false,
     todayIndex: 0,
     nowClick:0,
-    avatarUrl:'',
-    name:'',
+    avatarUrl:'',//用户头像
+    name:'',//用户名
+    commentDetail:'欢迎回来',
     nowText: '今天还没有打卡，快去打卡吧～',
+    dialogShow: false,
+    showOneButtonDialog: false,
+    oneButton: [{ text: '确定' }],
     punchW:'',
     punchH:'',
     rankingList:[
@@ -145,8 +149,7 @@ Page({
     ctx.setFillStyle("#fff");
     ctx.setFontSize(16);                               //字大小
     ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线
-    ctx.fillText("作者：" + this.data.name, 150, 100);
-    ctx.fillText('叮~收到一份邀请卡，快来看看吧？', 150, 250);            //150:canvas画布宽300，取1/2，中间，280：纵向位置
+    ctx.fillText(this.data.name + ': ' + this.data.commentDetail, 60, 30);
     ctx.save();
     ctx.setFontSize(20);
     ctx.setTextAlign('center');
@@ -165,6 +168,25 @@ Page({
     wx.redirectTo({
       url: '../index/index'
     })
+  },
+  // 修改语录
+  commentChange(){
+    console.log('this')
+    this.setData({
+      dialogShow:true
+    })
+  },
+  //确定更改
+  tapDialogButton(e) {
+    this.setData({
+      dialogShow: false,
+      showOneButtonDialog: false
+    })
+  },
+  //控制字数
+  numControl(e){
+    console.log('e')
+    console.log(e)
   },
   /**
    * 生命周期函数--监听页面加载

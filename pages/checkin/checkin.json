@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "排名",
-  "usingComponents": {}
+  "usingComponents": {
+    "mydialog": "../../weui/dialog/dialog"
+  }
 }

@@ -13,14 +13,22 @@
   <view class="checkin-content">
     <!--打卡-->
     <view class="checkin-daka-wapper checkin-daka" hidden="{{curIndex!=0}}">
-      <canvas canvas-id="punchCard" style="width:{{punchW}}px;height:{{punchH}}px;margin:auto"/>
+      <view class="canvas-wapper">
+        <canvas canvas-id="punchCard" style="width:{{punchW}}px;height:{{punchH}}px;background:#000;margin:auto"/>
+      </view>
       <view class="posi-btn">
         <view class="posi-bg"> <text class="iconfont icon-shuaxin"></text> </view>
         <view class="posi-bg"> <text class="iconfont icon-tupian"></text> </view>
-        <view class="posi-bg"> <text class="iconfont icon-comment"></text> </view>
+        <view class="posi-bg" bindtap="commentChange"> <text class="iconfont icon-comment"></text> </view>
       </view>
       <view class="ding-btn">打卡生成图片</view>
     </view>
+    <!-- 修改语录 -->
+    <mydialog title="更改语录" bindinput='{{numControl}}' bindlinechange='numControl' show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+      <view class="textarea-wapper">
+        <textarea class="text-yulu" maxlength='40'></textarea>
+      </view>
+    </mydialog>
     <!-- 足迹 -->
     <view class="checkin-daka-wapper" hidden="{{curIndex!=1}}">
       <view class="rili">
@@ -133,6 +141,7 @@
       </view>
     </view>
   </view>
+  
   <!-- bottom -->
   <view class="gohome" bindtap="goHome" hidden="{{curIndex==2}}">
     <text class="iconfont icon-zuobian"></text> <text  space="nbsp"> 返回首页</text>
