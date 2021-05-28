@@ -16,6 +16,7 @@ Page({
     avatarUrl:'',//用户头像
     name:'',//用户名
     commentDetail:'欢迎回来',
+    yulu:'',//语录
     nowText: '今天还没有打卡，快去打卡吧～',
     dialogShow: false,
     showOneButtonDialog: false,
@@ -148,8 +149,8 @@ Page({
     //呢称和文字
     ctx.setFillStyle("#fff");
     ctx.setFontSize(16);                               //字大小
-    ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线
-    ctx.fillText(this.data.name + ': ' + this.data.commentDetail, 60, 30);
+    ctx.setTextAlign('center');                        //是否居中显示，参考点画布中线 
+    ctx.fillText(this.data.commentDetail, 80, 40);
     ctx.save();
     ctx.setFontSize(20);
     ctx.setTextAlign('center');
@@ -159,6 +160,7 @@ Page({
     ctx.arc(cx, cy, 25, 0, 2 * Math.PI);
     ctx.clip();
     ctx.drawImage(this.data.avatarUrl, 30, 320, 52, 52);//需要先保存头像图片到本地
+    console.log(this.data.commentDetail)
     ctx.draw();
   },
   /**
@@ -171,17 +173,26 @@ Page({
   },
   // 修改语录
   commentChange(){
-    console.log('this')
     this.setData({
       dialogShow:true
     })
   },
+  //绑定textarea事件
+  bindTextAreaBlur(e){
+    this.setData({
+      yulu: e.detail.value
+    }) 
+    // console.log(this.data.yulu)
+  },
   //确定更改
   tapDialogButton(e) {
+    let that=this;
     this.setData({
       dialogShow: false,
-      showOneButtonDialog: false
+      showOneButtonDialog: false,
+      commentDetail:that.data.yulu
     })
+    this.canvasImgs()
   },
   //控制字数
   numControl(e){
@@ -213,9 +224,12 @@ Page({
       punchW: myCanvasWidth,
       punchH: 204
     })
+    
+    that.canvasImgs();//canvas
+
     //获取授权信息
     var app = getApp();
-    console.log(app.globalData.userInfo)
+    // console.log(app.globalData)
     this.setData({
       name: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl
@@ -230,7 +244,7 @@ Page({
     })
     // canvas
     const wxGetImageInfo = promisify.promisify(wx.getImageInfo);
-    that.canvasImgs();
+    
   },
 
   /**

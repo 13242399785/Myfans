@@ -26,7 +26,7 @@
     <!-- 修改语录 -->
     <mydialog title="更改语录" bindinput='{{numControl}}' bindlinechange='numControl' show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
       <view class="textarea-wapper">
-        <textarea class="text-yulu" maxlength='40'></textarea>
+        <textarea bindinput="bindTextAreaBlur" class="text-yulu" value='{{yulu}}' placeholder="{{commentDetail}}" maxlength='40'></textarea>
       </view>
     </mydialog>
     <!-- 足迹 -->
